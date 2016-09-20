@@ -1,0 +1,22 @@
+{
+  "manifest_version": 1,
+  "name": "More3D",
+  "description": "",
+  "version": "1.0",
+  "ide": {
+    "libraries": [],
+    "angular_modules": [
+    ]
+  },
+  "runtime": {
+    "libraries": [
+    ],
+    "angular_modules": [{
+        "name": "tml-svg",
+        "script": "js/3dsvg.js"
+      }
+    ]
+  },
+  "themes": [
+  ]
+}
