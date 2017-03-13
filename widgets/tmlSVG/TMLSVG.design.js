@@ -150,7 +150,7 @@ function newDtSvg(widgetLabel) {
         'imagey="{{me.imagey}}" ' +
         'shader="{{me.shader}}" ' +
         //'visible="{{me.visible}}" ' +
-        'hidden="{{!me.visible}}">' + props.text + "</twx-dt-svg>";
+        'hidden="{{!me.visible}}">' + props.svgValue + "</twx-dt-svg>";
       //'hidden="{{ (me.visible === \'true\' || me.visible === true) ? false : true}}"/>';
       //console.log("twxArSensor.runtimeTemplate: " + tmpl);
       return tmpl;
