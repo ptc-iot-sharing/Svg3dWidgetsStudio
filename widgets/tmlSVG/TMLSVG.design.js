@@ -12,19 +12,20 @@ function newDtSvg(widgetLabel) {
       isVisible: false
     },
     {
-      name: 'text',
-      label: 'Text',
-      datatype: 'xml',
+      name: 'svgValue',
+      label: 'SVG value',
+      datatype: 'string',
       default: '',
-      isVisible: false
-    }, {
-      name: 'textEditor',
-      label: 'Text',
+      isVisible: true
+    },
+    {
+      name: 'svgValueEditor',
+      label: 'svgValue',
       datatype: 'custom_ui',
-      buttonLabel: 'Edit Text',
-      title: 'Edit Text',
-      template: function() {
-        return '<textarea ng-model="props.text.value" ng-model-options="{ updateOn: \'default blur\', debounce: { \'default\': 300, \'blur\': 0 } }"  rows="10" cols="80"></textarea>';
+      buttonLabel: 'Edit svgValue',
+      title: 'Edit svgValue',
+      template: function () {
+        return '<textarea ng-model="props.svgValue.value" ng-model-options="{ updateOn: \'default blur\', debounce: { \'default\': 300, \'blur\': 0 } }"  rows="10" cols="80"></textarea>';
       },
       sortOrder: 1
     }, {
@@ -98,7 +99,7 @@ function newDtSvg(widgetLabel) {
 
     properties: props,
 
-    isBuildRequired: function(changedProps) {
+    isBuildRequired: function (changedProps) {
       if (changedProps === undefined) {
         return false;
       }
@@ -117,11 +118,11 @@ function newDtSvg(widgetLabel) {
       }
     },
 
-    designTemplate: function(props) {
+    designTemplate: function (props) {
       return ('<!-- 3dSensor -->');
     },
 
-    runtimeTemplate: function(props) {
+    runtimeTemplate: function (props) {
       // no longer builds textattrs or imageattrs live here
       var tmpl = '<twx-dt-svg ' +
         'id="' + props.widgetId + '" ' +

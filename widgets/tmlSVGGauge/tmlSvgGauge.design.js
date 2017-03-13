@@ -8,7 +8,7 @@ function newDtSvgGauge(widgetLabel) {
 	.st3{fill:#6FBF4C;}\
 	.st4{fill:#546F7A;}\
 	.st5{fill:#455B64;}\
-	.st6{font-family:\'ArialMT\';}\
+	.st6{font-family:sans-serif;}\
 	.st7{font-size:18px;}\
 	.st8{fill-rule:evenodd;clip-rule:evenodd;fill:#2B6733;}\
 	.st9{opacity:0.6;fill:url(#SVGID_2_);}\
@@ -104,7 +104,7 @@ function newDtSvgGauge(widgetLabel) {
 	</g>\
 </g>\
 <text text-anchor="middle" x="50%" y="209" class="st12 st6 st13">{{me.label + me.unit}}</text>\
-<text transform="matrix(1 0 0 1 103.2891 251.1387)" class="st14 st6 st15">{{me.value}}</text>\
+<text text-anchor="middle" x="50%" y="251" class="st14 st6 st15">{{me.value}}</text>\
 </svg>';
   var properties = [{
       name: 'src',
@@ -160,7 +160,7 @@ function newDtSvgGauge(widgetLabel) {
       name: 'text',
       label: 'Text',
       default: DEFAULT_TEXT,
-      datatype: 'xml',
+      datatype: 'string',
       isVisible: false,
 	  value: DEFAULT_TEXT
     }, {
@@ -267,7 +267,6 @@ function newDtSvgGauge(widgetLabel) {
 
     runtimeTemplate: function(props) {
       // no longer builds textattrs or imageattrs live here
-	  debugger
       var tmpl = '<twx-dt-svg ' +
         'id="' + props.widgetId + '" ' +
         'x="{{me.x}}" ' +
