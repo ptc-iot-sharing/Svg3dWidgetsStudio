@@ -1,4 +1,4 @@
-/*(function() {
+(function() {
     'use strict';
 
     angular.module('tml-svg', []).directive('twxDtSvg', ['tml3dRenderer', function(renderer) {
@@ -32,7 +32,7 @@
 
         };
     }]);
-}());*/
+}());
 // fix the function for unicode chars
 setTimeout(function (){
 	VF_ANG.svgToImage = function(objCtx, callback) {
