@@ -1,4 +1,4 @@
-(function() {
+/*(function() {
     'use strict';
 
     angular.module('tml-svg', []).directive('twxDtSvg', ['tml3dRenderer', function(renderer) {
@@ -32,15 +32,14 @@
 
         };
     }]);
-}());
+}());*/
 // fix the function for unicode chars
 setTimeout(function (){
 	VF_ANG.svgToImage = function(objCtx, callback) {
 		var svgElem = objCtx.element.find("svg")[0];
-		d3.select(svgElem);
 		var seri = new XMLSerializer();
 		var src = seri.serializeToString(svgElem);
-		
+		console.log("test");
 		// make it work for unicode chars
 		var imgSrc = 'data:image/svg+xml;base64,' + window.btoa(unescape(encodeURIComponent(src)));
 
@@ -55,8 +54,9 @@ setTimeout(function (){
 		  // Get drawing context for the Canvas
 		  var ctx = canvas.getContext('2d');
 		  ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
-		  var retImg = canvas.toDataURL();
-		  callback(objCtx, retImg);
+		  callback(objCtx, canvas.toDataURL());
+          canvas = null;
+          image = null;
 		};
 	 };
 },1000);

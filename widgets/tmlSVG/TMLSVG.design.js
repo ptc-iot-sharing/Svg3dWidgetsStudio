@@ -12,20 +12,20 @@ function newDtSvg(widgetLabel) {
       isVisible: false
     },
     {
-      name: 'svgValue',
+      name: 'svg-value',
       label: 'SVG value',
       datatype: 'string',
       default: '',
       isVisible: true
     },
     {
-      name: 'svgValueEditor',
-      label: 'svgValue',
+      name: 'svg-valueEditor',
+      label: 'svg-value',
       datatype: 'custom_ui',
-      buttonLabel: 'Edit svgValue',
-      title: 'Edit svgValue',
+      buttonLabel: 'Edit svg-value',
+      title: 'Edit svg-value',
       template: function () {
-        return '<textarea ng-model="props.svgValue.value" ng-model-options="{ updateOn: \'default blur\', debounce: { \'default\': 300, \'blur\': 0 } }"  rows="10" cols="80"></textarea>';
+        return '<textarea ng-model="props[\'svg-value\']value" ng-model-options="{ updateOn: \'default blur\', debounce: { \'default\': 300, \'blur\': 0 } }"  rows="10" cols="80"></textarea>';
       },
       sortOrder: 1
     }, {
@@ -150,7 +150,7 @@ function newDtSvg(widgetLabel) {
         'imagey="{{me.imagey}}" ' +
         'shader="{{me.shader}}" ' +
         //'visible="{{me.visible}}" ' +
-        'hidden="{{!me.visible}}">' + props.svgValue + "</twx-dt-svg>";
+        'hidden="{{!me.visible}}" svg-value="' + props['svg-value'] + '">'+ props['svg-value'] +'</twx-dt-svg>';
       //'hidden="{{ (me.visible === \'true\' || me.visible === true) ? false : true}}"/>';
       //console.log("twxArSensor.runtimeTemplate: " + tmpl);
       return tmpl;
