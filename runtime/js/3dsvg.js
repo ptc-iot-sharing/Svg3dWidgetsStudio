@@ -39,7 +39,6 @@ setTimeout(function (){
 		var svgElem = objCtx.element.find("svg")[0];
 		var seri = new XMLSerializer();
 		var src = seri.serializeToString(svgElem);
-		console.log("test");
 		// make it work for unicode chars
 		var imgSrc = 'data:image/svg+xml;base64,' + window.btoa(unescape(encodeURIComponent(src)));
 
@@ -58,5 +57,5 @@ setTimeout(function (){
           canvas = null;
           image = null;
 		};
-	 };
+     };
 },1000);

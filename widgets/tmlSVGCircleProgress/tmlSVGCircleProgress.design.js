@@ -161,6 +161,7 @@ circle {\
     label: widgetLabel,
     category: 'ar',
 
+    groups: ['SVG Augmentations'],
     isContainer: false,
 
     properties: props,
@@ -220,7 +221,14 @@ circle {\
       //'hidden="{{ (me.visible === \'true\' || me.visible === true) ? false : true}}"/>';
       //console.log("twxArSensor.runtimeTemplate: " + tmpl);
       return tmpl;
-    }
+    },
+
+    events: [
+      {
+        name: 'click',
+        label: 'ves-ar-extension:Click'
+      }
+    ]
   };
   return retObj;
 }

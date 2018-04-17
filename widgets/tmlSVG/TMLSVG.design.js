@@ -1,31 +1,20 @@
 function newDtSvg(widgetLabel) {
   var ELEMENT_NAME = 'tml-svg';
-  var properties = [{
-      name: 'src',
-      label: 'Resource',
-      datatype: 'resource_url',
-      resource_image: true,
-      default: 'Default/vu_gauge1.svg',
-      isBindingTarget: true,
-      alwaysWriteAttribute: true,
-      sortOrder: 2,
-      isVisible: false
-    },
+  var properties = [
     {
-      name: 'svg-value',
-      label: 'SVG value',
+      name: 'text',
+      label: 'Text',
+      default: "Enter SVG here",
       datatype: 'string',
-      default: '',
-      isVisible: true
-    },
-    {
-      name: 'svg-valueEditor',
-      label: 'svg-value',
+      isVisible: false,
+    }, {
+      name: 'textEditor',
+      label: 'SVG',
       datatype: 'custom_ui',
-      buttonLabel: 'Edit svg-value',
-      title: 'Edit svg-value',
-      template: function () {
-        return '<textarea ng-model="props[\'svg-value\']value" ng-model-options="{ updateOn: \'default blur\', debounce: { \'default\': 300, \'blur\': 0 } }"  rows="10" cols="80"></textarea>';
+      buttonLabel: 'Edit SVG',
+      title: 'Edit SVG',
+      template: function (widgetProps) {
+        return '<textarea ng-model="props.text.value" ng-model-options="{ updateOn: \'default blur\', debounce: { \'default\': 300, \'blur\': 0 } }"  rows="10" cols="80"></textarea>';
       },
       sortOrder: 1
     }, {
@@ -91,6 +80,8 @@ function newDtSvg(widgetLabel) {
 
     supports3D: true,
 
+    groups: ['SVG Augmentations'],
+
     category: 'ar',
 
     label: widgetLabel,
@@ -150,11 +141,18 @@ function newDtSvg(widgetLabel) {
         'imagey="{{me.imagey}}" ' +
         'shader="{{me.shader}}" ' +
         //'visible="{{me.visible}}" ' +
-        'hidden="{{!me.visible}}" svg-value="' + props['svg-value'] + '">'+ props['svg-value'] +'</twx-dt-svg>';
+        'hidden="{{!me.visible}}">' + props.text + "</twx-dt-svg>";
       //'hidden="{{ (me.visible === \'true\' || me.visible === true) ? false : true}}"/>';
       //console.log("twxArSensor.runtimeTemplate: " + tmpl);
       return tmpl;
-    }
+    },
+
+    events: [
+      {
+        name: 'click',
+        label: 'ves-ar-extension:Click'
+      }
+    ]
   };
   return retObj;
 }

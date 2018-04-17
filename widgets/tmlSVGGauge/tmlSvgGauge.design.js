@@ -107,117 +107,118 @@ function newDtSvgGauge(widgetLabel) {
 <text text-anchor="middle" x="50%" y="251" class="st14 st6 st15">{{me.value}}</text>\
 </svg>';
   var properties = [{
-      name: 'src',
-      label: 'Resource',
-      datatype: 'resource_url',
-      resource_image: true,
-      default: 'Default/vu_gauge1.svg',
-      isBindingTarget: true,
-      alwaysWriteAttribute: true,
-      sortOrder: 2
-    }, {
-      name: 'label',
-      label: 'Label',
-      datatype: 'string',
-      isBindingTarget: true,
-      default: ''
-    }, {
-      name: 'value',
-      label: 'Value',
-      datatype: 'number',
-      isBindingTarget: true,
-      default: '100'
-    }, {
-      name: 'minValue',
-      label: 'Min Value',
-      isBindingTarget: true,
-      datatype: 'number',
-      default: '0'
-    }, 
-    {
-      name: 'maxValue',
-      label: 'Max Value',
-      isBindingTarget: true,
-      datatype: 'number',
-      default: '100'
-    },
-    {
-      name: 'unit',
-      label: 'Unit',
-      isBindingTarget: true,
-      datatype: 'string',
-      default: '%'
-    },
-     {
-      name: 'textColor',
-      label: 'textColor',
-      isBindingTarget: true,
-      datatype: 'string',
-      default: '#125E3D'
-    },   
+    name: 'src',
+    label: 'Resource',
+    datatype: 'resource_url',
+    resource_image: true,
+    default: 'Default/vu_gauge1.svg',
+    isBindingTarget: true,
+    alwaysWriteAttribute: true,
+    sortOrder: 2
+  }, {
+    name: 'label',
+    label: 'Label',
+    datatype: 'string',
+    isBindingTarget: true,
+    default: ''
+  }, {
+    name: 'value',
+    label: 'Value',
+    datatype: 'number',
+    isBindingTarget: true,
+    default: '100'
+  }, {
+    name: 'minValue',
+    label: 'Min Value',
+    isBindingTarget: true,
+    datatype: 'number',
+    default: '0'
+  },
+  {
+    name: 'maxValue',
+    label: 'Max Value',
+    isBindingTarget: true,
+    datatype: 'number',
+    default: '100'
+  },
+  {
+    name: 'unit',
+    label: 'Unit',
+    isBindingTarget: true,
+    datatype: 'string',
+    default: '%'
+  },
+  {
+    name: 'textColor',
+    label: 'textColor',
+    isBindingTarget: true,
+    datatype: 'string',
+    default: '#125E3D'
+  },
 
-    {
-      name: 'text',
-      label: 'Text',
-      default: DEFAULT_TEXT,
-      datatype: 'string',
-      isVisible: false,
-	  value: DEFAULT_TEXT
+  {
+    name: 'text',
+    label: 'Text',
+    default: DEFAULT_TEXT,
+    datatype: 'string',
+    isVisible: false,
+    value: DEFAULT_TEXT
+  }, {
+    name: 'textEditor',
+    label: 'Text',
+    datatype: 'custom_ui',
+    buttonLabel: 'Edit Text',
+    title: 'Edit Text',
+    template: function (widgetProps) {
+      return '<textarea ng-model="props.text.value" ng-model-options="{ updateOn: \'default blur\', debounce: { \'default\': 300, \'blur\': 0 } }"  rows="10" cols="80"></textarea>';
+    },
+    sortOrder: 1
+  }, {
+    name: 'canvasgrowthoverride',
+    label: 'Canvas Growth Override',
+    datatype: 'string',
+    default: 'image+text',
+    isBindingTarget: true,
+    editor: 'select',
+    options: [{
+      label: 'Canvas grows with text size',
+      value: 'text'
     }, {
-      name: 'textEditor',
-      label: 'Text',
-      datatype: 'custom_ui',
-      buttonLabel: 'Edit Text',
-      title: 'Edit Text',
-      template: function(widgetProps) {
-        return '<textarea ng-model="props.text.value" ng-model-options="{ updateOn: \'default blur\', debounce: { \'default\': 300, \'blur\': 0 } }"  rows="10" cols="80"></textarea>';      },
-      sortOrder: 1
+      label: 'Canvas grows with image Size',
+      value: 'image'
     }, {
-      name: 'canvasgrowthoverride',
-      label: 'Canvas Growth Override',
-      datatype: 'string',
-      default: 'image+text',
-      isBindingTarget: true,
-      editor: 'select',
-      options: [{
-        label: 'Canvas grows with text size',
-        value: 'text'
-      }, {
-        label: 'Canvas grows with image Size',
-        value: 'image'
-      }, {
-        label: 'Canvas grows with image and text sizes',
-        value: 'image+text'
-      }, {
-        label: 'No Override',
-        value: 'canvas'
-      }],
-      sortOrder: 122
+      label: 'Canvas grows with image and text sizes',
+      value: 'image+text'
     }, {
-      name: 'canvasheight',
-      label: 'Canvas Height',
-      datatype: 'number',
-      default: 600,
-      isBindingTarget: false,
-      alwaysWriteAttribute: true,
-      sortOrder: 123
-    }, {
-      name: 'canvaswidth',
-      label: 'Canvas Width',
-      datatype: 'number',
-      default: 600,
-      isBindingTarget: false,
-      alwaysWriteAttribute: true,
-      sortOrder: 124
-    }, {
-      name: 'billboard',
-      label: 'Billboard',
-      datatype: 'boolean',
-      default: true,
-      isBindingTarget: true,
-      alwaysWriteAttribute: true,
-      sortOrder: 200
-    }
+      label: 'No Override',
+      value: 'canvas'
+    }],
+    sortOrder: 122
+  }, {
+    name: 'canvasheight',
+    label: 'Canvas Height',
+    datatype: 'number',
+    default: 600,
+    isBindingTarget: false,
+    alwaysWriteAttribute: true,
+    sortOrder: 123
+  }, {
+    name: 'canvaswidth',
+    label: 'Canvas Width',
+    datatype: 'number',
+    default: 600,
+    isBindingTarget: false,
+    alwaysWriteAttribute: true,
+    sortOrder: 124
+  }, {
+    name: 'billboard',
+    label: 'Billboard',
+    datatype: 'boolean',
+    default: true,
+    isBindingTarget: true,
+    alwaysWriteAttribute: true,
+    sortOrder: 200
+  }
   ];
 
   properties.push(Twx3dCommon.getPivotProperty());
@@ -237,12 +238,13 @@ function newDtSvgGauge(widgetLabel) {
 
     label: widgetLabel,
     category: 'ar',
+    groups: ['SVG Augmentations'],
 
     isContainer: false,
 
     properties: props,
 
-    isBuildRequired: function(changedProps) {
+    isBuildRequired: function (changedProps) {
       if (changedProps === undefined) {
         return false;
       }
@@ -261,11 +263,11 @@ function newDtSvgGauge(widgetLabel) {
       }
     },
 
-    designTemplate: function(props) {
+    designTemplate: function (props) {
       return ('<!-- 3dSensor -->');
     },
 
-    runtimeTemplate: function(props) {
+    runtimeTemplate: function (props) {
       // no longer builds textattrs or imageattrs live here
       var tmpl = '<twx-dt-svg ' +
         'id="' + props.widgetId + '" ' +
@@ -297,7 +299,14 @@ function newDtSvgGauge(widgetLabel) {
       //'hidden="{{ (me.visible === \'true\' || me.visible === true) ? false : true}}"/>';
       //console.log("twxArSensor.runtimeTemplate: " + tmpl);
       return tmpl;
-    }
+    },
+
+    events: [
+      {
+        name: 'click',
+        label: 'ves-ar-extension:Click'
+      }
+    ]
   };
   return retObj;
 }
