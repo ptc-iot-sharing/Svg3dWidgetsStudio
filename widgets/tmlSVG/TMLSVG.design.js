@@ -72,6 +72,7 @@ function newDtSvg(widgetLabel) {
   var overlay = Twx3dCommon.arrayToMap(properties);
 
   var props = Twx3dCommon.new3dProps(overlay);
+  var template = Twx3dCommon.buildRuntimeTemplate('twx-dt-image', props.filter(val => val.name!="text"));
 
   var retObj = {
     elementTag: ELEMENT_NAME,
@@ -115,7 +116,7 @@ function newDtSvg(widgetLabel) {
     },
 
     designTemplate: function (props) {
-      return ('<!-- 3dSensor -->');
+      return template;
     },
 
     runtimeTemplate: function (props) {
