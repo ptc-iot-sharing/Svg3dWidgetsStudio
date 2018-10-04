@@ -231,7 +231,10 @@ function newDtSvgGauge(widgetLabel) {
 
   var retObj = {
     elementTag: "tml-svg-gauge",
-
+    dependencies: {
+      files: ['js/3dsvg.js'],
+      angularModules: ['tml-svg']
+    },
     isVisibleInPalette: true,
 
     supports3D: true,

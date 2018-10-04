@@ -157,7 +157,10 @@ circle {\
     isVisibleInPalette: true,
 
     supports3D: true,
-
+    dependencies: {
+      files: ['js/3dsvg.js'],
+      angularModules: ['tml-svg']
+    },
     label: widgetLabel,
     category: 'ar',
 

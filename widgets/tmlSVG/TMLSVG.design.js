@@ -80,6 +80,11 @@ function newDtSvg(widgetLabel) {
 
     supports3D: true,
 
+    dependencies: {
+      files: ['js/3dsvg.js'],
+      angularModules: ['tml-svg']
+    },
+
     groups: ['SVG Augmentations'],
 
     category: 'ar',
